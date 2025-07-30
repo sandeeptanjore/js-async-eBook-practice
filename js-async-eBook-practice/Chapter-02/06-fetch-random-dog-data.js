@@ -1,5 +1,5 @@
 const fetchRandomDogImage = () => {
-  fetch('https://dogw.ceo/api/breeds/image/random')
+  fetch('https://dosg.ceo/api/breeds/image/random')
     .then((response) => {
       console.log(
         'HTTP Status and Message: ',
