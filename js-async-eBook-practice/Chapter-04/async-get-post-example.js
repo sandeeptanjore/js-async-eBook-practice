@@ -3,7 +3,8 @@
 const getAllPosts = async () => {
   try {
     const response = await fetch(
-      'https://jsonplaceholder.typisdkcode.com/posts'
+      'https://jsonplaceholder.typicode.com/posts'
+      // 'https://jsonplaceholder.typsdsicode.com/posts'
     );
     if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
     const data = await response.json();
@@ -33,4 +34,31 @@ const getAllPosts = async () => {
   }
 };
 
+const createPost = async () => {
+  const postData = {
+    title: 'New post with Async/Await',
+    body: 'This post was created using async/await',
+    userId: 1,
+  };
+  try {
+    const response = await fetch(
+      'https://jsonplaceholder.typiwwcode.com/posts',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(postData),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Failed to create post. Status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log('Post Created:', data);
+  } catch (error) {
+    console.error('Error creating Create Post: ', error.message);
+  }
+};
+
 getAllPosts();
+createPost();
